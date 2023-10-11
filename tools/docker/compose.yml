@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  go-dev-container:
+    build: 
+      context: ../../
+      dockerfile: tools/docker/Dockerfile
+    container_name: dev-container
+    volumes:
+      - ../../src/:/opt/go_home/
+    entrypoint: ["/bin/sh", "-c","while true; do sleep 100; done;"]
