@@ -19,4 +19,5 @@ func HandleLambdaEvent(event MyEvent) (MyResponse, error) {
 
 func main() {
     lambda.Start(HandleLambdaEvent)
+	// fmt.Print("Hello\n")
 }
