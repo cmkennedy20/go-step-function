@@ -1,11 +1,11 @@
 version: "3.9"
 
 services:
-  go-dev-container:
+  golang:
     container_name: golang
     build: 
       context: ../../
-      dockerfile: tools/docker/Dockerfile
+      dockerfile: tools/docker/golang.Dockerfile
     volumes:
       - ../../src/:/opt/go_home/
     entrypoint: ["/bin/sh", "-c","while true; do sleep 100; done;"]
@@ -21,3 +21,9 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
   terraform:
     container_name: tf-local
+    build:
+      context: ../../
+      dockerfile: tools/docker/terraform.Dockerfile
+    volumes:
+      - ../../build/terraform/:/opt/tf_home/
+    entrypoint: ["/bin/sh", "-c","while true; do sleep 100; done;"]
