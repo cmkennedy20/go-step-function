@@ -10,7 +10,7 @@ services:
       - ../../src/:/opt/go_home/
     entrypoint: ["/bin/sh", "-c","while true; do sleep 100; done;"]
   localstack:
-    container_name: localstack-container
+    container_name: localstack
     build: 
       context: ../../
       dockerfile: tools/docker/localstack.Dockerfile
@@ -20,7 +20,7 @@ services:
       - DEBUG=true
       - DOCKER_HOST=unix:///var/run/docker.sock
   terraform:
-    container_name: tf-local
+    container_name: terraform
     build:
       context: ../../
       dockerfile: tools/docker/terraform.Dockerfile
