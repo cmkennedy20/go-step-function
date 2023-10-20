@@ -15,7 +15,6 @@ module "lambda" {
   depends_on  = [module.iam-roles]
 }
 
-
 module "security-groups" {
   source = "./modules/security-groups"
   vpc_id = module.vpc.vpc_id
