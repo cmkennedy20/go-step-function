@@ -15,5 +15,4 @@ do
     fi 
     docker exec -it $(docker ps | grep golang | cut -d " " -f 1) /bin/bash /opt/go_home/$function_name/build.sh
     aws lambda create-function --no-paginate --function-name $function_name --runtime provided.al2 --handler bootstrap --architectures arm64 --role arn:aws:iam::290749291887:role/lambda-execution-role --zip-file fileb://$function_path/lambda.zip
-
 done 

@@ -16,6 +16,8 @@ services:
       dockerfile: tools/docker/localstack.Dockerfile
     ports:
       - '4566:4566'
+    volumes:
+      - ../../src/:/opt/localstack_home/
     environment:
       - DEBUG=true
       - DOCKER_HOST=unix:///var/run/docker.sock
