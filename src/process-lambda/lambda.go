@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/aws/aws-lambda-go/lambda"
+	"fmt"
 )
 
 type MyEvent struct {
@@ -13,7 +14,10 @@ type MyResponse struct {
 }
 
 func HandleLambdaEvent(event MyEvent) (MyResponse, error) {
-	return MyResponse{"True"}, nil
+	if event == nil {
+		return nil, fmt.Errorf("received nil event")
+	}
+	return &MyResponse{Message: fmt.Sprintf("%s passed_input", event.Action)}, nil
 }
 
 func main() {
