@@ -10,6 +10,7 @@ do
     result=$(aws lambda get-function-configuration --function-name $function_name | grep "ResourceNotFoundException") > /dev/null
     if [[ -z "$result" ]]; then
         $(aws lambda delete-function --function-name $function_name) 
+        rm -r -f bootstrap lambda.zip 
         else
             echo "The lambda doesn't exist"
     fi 
