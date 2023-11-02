@@ -13,7 +13,7 @@ type MyResponse struct {
 	Message string `json:"Result:"`
 }
 
-func HandleLambdaEvent(event MyEvent) (MyResponse, error) {
+func HandleLambdaEvent(event *MyEvent) (*MyResponse, error) {
 	if event == nil {
 		return nil, fmt.Errorf("received nil event")
 	}
