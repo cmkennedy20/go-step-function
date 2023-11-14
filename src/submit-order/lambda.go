@@ -10,7 +10,7 @@ type MyEvent struct {
 }
 
 type MyResponse struct {
-	Message string `json:"Result:"`
+	Message string `json:"transaction_type:"`
 }
 
 func HandleLambdaEvent(event *MyEvent) (*MyResponse, error) {
