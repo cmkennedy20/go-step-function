@@ -17,7 +17,7 @@ func HandleLambdaEvent(event *MyEvent) (*MyResponse, error) {
 	if event == nil {
 		return nil, fmt.Errorf("received nil event")
 	}
-	return &MyResponse{Message: fmt.Sprintf("%s passed_input", event.Action)}, nil
+	return &MyResponse{Message: fmt.Sprintf("%s order_processed", event.Action)}, nil
 }
 
 
