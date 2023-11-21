@@ -20,7 +20,6 @@ func HandleLambdaEvent(event *MyEvent) (*MyResponse, error) {
 	return &MyResponse{Message: fmt.Sprintf("%s order_processed", event.Action)}, nil
 }
 
-
 func main() {
     lambda.Start(HandleLambdaEvent)
 }
